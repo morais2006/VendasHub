@@ -1,0 +1,16 @@
+# Redis para desenvolvimento e demonstração.
+# Uso: docker compose up -d redis   (ou: npm run redis:up)
+# No Windows sem Docker, o Memurai (compatível com Redis) atende na mesma porta 6379.
+services:
+  redis:
+    image: redis:8.6-alpine
+    container_name: vendahub-redis
+    command: ['redis-server', '--save', '', '--appendonly', 'no', '--maxmemory', '128mb', '--maxmemory-policy', 'allkeys-lru']
+    ports:
+      - '6379:6379'
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped

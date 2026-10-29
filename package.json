@@ -1,0 +1,39 @@
+{
+  "name": "vendahub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VendaHub — gestão comercial para pequenas empresas (Supabase + Redis)",
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "check:env": "npm run check:env -w apps/api",
+    "dev": "concurrently -n api,web -c magenta,cyan \"npm run dev -w apps/api\" \"npm run dev -w apps/web\"",
+    "dev:api": "npm run dev -w apps/api",
+    "dev:web": "npm run dev -w apps/web",
+    "build": "npm run build -w apps/api && npm run build -w apps/web",
+    "start": "npm run start -w apps/api",
+    "test": "npm run test -w apps/api && npm run test -w apps/web",
+    "test:integration": "npm run test:integration -w apps/api",
+    "lint": "npm run lint -w apps/api && npm run lint -w apps/web",
+    "typecheck": "npm run typecheck -w apps/api && npm run typecheck -w apps/web",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "db:push": "supabase db push",
+    "db:seed": "npm run seed -w apps/api",
+    "db:types": "supabase gen types typescript --linked --schema public > apps/api/src/types/database.types.ts && prettier --write apps/api/src/types/database.types.ts",
+    "redis:up": "docker compose up -d redis",
+    "redis:down": "docker compose down"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6",
+    "prettier": "^3.9.10"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

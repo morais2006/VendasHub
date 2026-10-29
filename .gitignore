@@ -1,0 +1,38 @@
+# Dependências
+node_modules/
+
+# Builds
+dist/
+build/
+*.tsbuildinfo
+coverage/
+
+# Variáveis de ambiente e credenciais (nunca versionar)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Supabase local
+supabase/.branches/
+supabase/.temp/
+supabase/.env
+
+# Anotações e guias locais (nunca versionar)
+*.local.md
+
+# Testes de interface
+test-results/
+playwright-report/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / SO
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/

@@ -407,3 +407,5 @@ No celular (390 px):
 - **Métricas por processo.** As métricas do diagnóstico ficam na memória da instância da API e zeram ao reiniciá-la. Os valores em cache ficam no Redis.
 - **Projeto Supabase pausado.** Projetos no plano gratuito pausam após 7 dias sem uso; reative pelo painel do Supabase antes de uma apresentação.
 - **Redis via Docker sem execução registrada.** Os testes registrados acima usaram o Memurai (compatível com Redis). O `docker-compose.yml` está incluído, mas não há execução dele registrada nesses resultados.
+
+LINK DO VÍDEO [https://youtu.be/_mdDclD8E6k?feature=shared]
